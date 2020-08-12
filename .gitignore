@@ -5,3 +5,5 @@ __pycache__/
 .ipynb_checkpoints/
 /venv
 /analysis
+/.idea
+/example_caked_spectrum.txt
