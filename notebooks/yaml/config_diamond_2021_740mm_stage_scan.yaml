@@ -1,0 +1,58 @@
+file_paths:
+    input_calibrant_file: ../../../SXRD_raw_data/diamond_2021/rawdata_tiffs/103852_tiffs/00001_00000.tiff
+    # Input file path for the calibrant diffraction pattern image
+    
+    output_calibration_path: ../../../SXRD_analysis/diamond_2021/103852-calibration/calibration-pyFAI/calibration_103852_CeO2_737mm_pyFAI.poni
+    # Output file path for the .poni calibration file
+    
+    input_path: ../../../SXRD_raw_data/diamond_2021/rawdata/
+    # Input file path for the diffraction pattern images
+    
+    input_experiment_list: 
+    - 103845-pilatus2M-files
+    # Input experiment list (name of input folders)
+    
+    glob_search_term: *.cbf
+    # Glob search term (common name of the image files)
+    
+    output_path: ../../../SXRD_analysis/diamond_2021/
+    # Output path for azimuthally integrated or caked data files
+    
+    output_experiment_list:
+    - 103845
+    # Output experiment list (name of output folders)
+    
+setup_inputs: 
+    beam_centre_x: 753.533 
+    # x-coordinate of the beam-centre in pixels
+    
+    beam_centre_y: 680.293
+    # y-coordinate of the beam-centre in pixels
+    # Note, this is 1679 - 998.707 since value from Dioptas is from top rather than bottom
+    
+    sample_detector_distance: 737.2873 
+    # Sample-to-detector distance in millimetres (unit used by Fit2d)
+   
+    wl: 1.242000e-11
+    # Beam wavelength in metres
+
+    pixel_x: 0.000172 
+    # Pixel size in metres (in x)
+    pixel_y: 0.000172 
+    # Pixel size in metres (in y)
+
+    calibrant_type: CeO2 
+    # Calibrant type, eg. CeO2, LaB6, etc.
+    
+    num_calibration_rings: 15 
+    # Number of calibrant rings used for calibration
+    
+refinement_inputs:
+    number_of_points: 10000
+    # Number of points used to resolve the intensity profile
+    
+    number_of_cakes: 72
+    # Number of cakes for 'caking' the synchrotron diffraction pattern images
+    
+    pixel_size: 0.172
+    # Pixel size in millimetres
