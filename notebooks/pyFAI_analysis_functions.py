@@ -15,6 +15,8 @@ import os
 import pyFAI.azimuthalIntegrator
 from pyFAI.gui import jupyter
 import yaml
+from typing import Tuple
+from typing import List
 
 def get_config(path: str) -> dict:
     """Open a yaml file and return the contents."""
