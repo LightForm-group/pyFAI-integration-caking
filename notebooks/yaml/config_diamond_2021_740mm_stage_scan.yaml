@@ -12,7 +12,7 @@ file_paths:
     - 103845-pilatus2M-files
     # Input experiment list (name of input folders)
     
-    glob_search_term: *.cbf
+    glob_search_term: '*.cbf'
     # Glob search term (common name of the image files)
     
     output_path: ../../../SXRD_analysis/diamond_2021/

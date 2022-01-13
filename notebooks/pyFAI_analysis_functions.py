@@ -74,7 +74,9 @@ def calibrate(input_calibrant_path: str, beam_centre_x: float, beam_centre_y: fl
     with open(output_calibration_path) as f:
         print(f.read())
         
-    print(f"Calibration .poni file written to: {output_calibration_path}")
+    print(f"Calibration .poni file written to: {output_calibration_path} \n")
+    
+    print(f"Note, this image appears mirrored from top to bottom, as the origin is at the bottom left.")
 
 def azimuthal_integration_iteration(input_path: str, input_experiment_list: list, glob_search_term: str,
                                     output_path: str, output_experiment_list: list,
@@ -106,7 +108,7 @@ def azimuthal_integration_iteration(input_path: str, input_experiment_list: list
             result_array = np.column_stack((result.radial, result.intensity))
             
             # check output folder exists
-            output_folder = f"{output_path}{output_experiment}/azimuthal-integration-test/"
+            output_folder = f"{output_path}{output_experiment}/azimuthal-integration/"
             CHECK_FOLDER = os.path.isdir(output_folder)
 
             if not CHECK_FOLDER:
@@ -120,7 +122,8 @@ def azimuthal_integration_iteration(input_path: str, input_experiment_list: list
         
 def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_search_term: str,
                             output_path: str, output_experiment_list: list,
-                            ai, mask, number_of_points: int, number_of_cakes: int):
+                            ai, mask, number_of_points: int, number_of_cakes: int, 
+                            cake_direction: str = "clockwise"):
     
     # suppress warnings when TIFFs are read
     logging.getLogger("fabio.TiffIO").setLevel(logging.ERROR)
@@ -152,8 +155,15 @@ def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_s
                                     polarization_factor=0.99,
                                     method='full_csr')
 
-            # flip the intensity data to order cakes clockwise rather than anticlockwise
-            intensity = np.flip(result2d.intensity.T, axis=1)
+            if cake_direction == "clockwise":
+                # transpose to order the intensity data
+                intensity = result2d.intensity.T
+            elif cake_direction == "anti-clockwise" or cake_direction == "anti clockwise" or cake_direction == "anticlockwise":
+                # flip the intensity data to order cakes clockwise rather than anticlockwise
+                intensity = np.flip(result2d.intensity.T, axis=1)
+            else:
+                print(f"Cake direction input not recognised.")
+                return
 
             # reshape radial labels to 2D array so they can be attached to the intensity data.
             radial = np.reshape(result2d.radial, (-1, 1))
@@ -161,7 +171,7 @@ def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_s
             result_array = np.hstack((radial, intensity))
 
             # check output folder exists
-            output_folder = f"{output_path}{output_experiment}/caking-test/"
+            output_folder = f"{output_path}{output_experiment}/caking/"
             CHECK_FOLDER = os.path.isdir(output_folder)
 
             if not CHECK_FOLDER:
@@ -169,13 +179,14 @@ def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_s
                 print("Created folder : ", output_folder)
 
             # write out the caked data to a text file
-            np.savetxt(f"{output_folder}{image_path.stem}.dat", result_array)
+            np.savetxt(f"{output_folder}{image_path.stem}.dat", result_array, fmt = "%10.6f", delimiter = "\t")
 
         print(f"Saved .dat caked data files to folder : {output_folder}")
         
 def caking_iteration_maud(input_path: str, input_experiment_list: list, glob_search_term: str,
                           output_path: str, output_experiment_list: list,
-                          ai, mask, pixel_size: float, number_of_points: int, number_of_cakes: int):
+                          ai, mask, pixel_size: float, number_of_points: int, number_of_cakes: int,
+                          cake_direction: str = "clockwise"):
     
     # suppress warnings when TIFFs are read
     logging.getLogger("fabio.TiffIO").setLevel(logging.ERROR)
@@ -207,8 +218,15 @@ def caking_iteration_maud(input_path: str, input_experiment_list: list, glob_sea
                                     polarization_factor=0.99,
                                     method='full_csr')
 
-            # flip the intensity data to order cakes clockwise rather than anticlockwise
-            intensity = np.flip(result2d.intensity.T, axis=1)
+            if cake_direction == "clockwise":
+                # transpose to order the intensity data
+                intensity = result2d.intensity.T
+            elif cake_direction == "anti-clockwise" or cake_direction == "anti clockwise" or cake_direction == "anticlockwise":
+                # flip the intensity data to order cakes clockwise rather than anticlockwise
+                intensity = np.flip(result2d.intensity.T, axis=1)
+            else:
+                print(f"Cake direction input not recognised.")
+                return
 
             # reshape radial labels to 2D array so they can be attached to the intensity data.
             radial_mm = np.reshape(result2d.radial, (-1, 1))

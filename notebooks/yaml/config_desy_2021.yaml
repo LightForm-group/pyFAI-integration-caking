@@ -21,7 +21,7 @@ file_paths:
     - Heat_02
     # Input experiment list (name of input folders)
     
-    glob_search_term: Ti64*.tif
+    glob_search_term: T*.tif
     # Glob search term (common name of the image files)
     
     output_path: ../../../SXRD_analysis/desy_2021/
@@ -66,7 +66,7 @@ setup_inputs:
     # Number of calibrant rings used for calibration
     
 refinement_inputs:
-    number_of_points: 10000
+    number_of_points: 5000
     # Number of points used to resolve the intensity profile
     
     number_of_cakes: 72
