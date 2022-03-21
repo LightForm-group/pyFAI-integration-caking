@@ -1,0 +1,62 @@
+file_paths:
+    input_calibrant_file: ../../../SXRD_raw_data/desy_2020/diffraction_images/LaB6/LaB6_5mm_B-00001.tif
+    # Input file path for the calibrant diffraction pattern image
+    
+    output_calibration_path: ../../../SXRD_analysis/desy_2020/calibration-pyFAI/DESY_2020_LaB6_1554mm_Day2_pyFAI.poni
+    # Output file path for the .poni calibration file
+    
+    input_path: ../../../SXRD_raw_data/desy_2020/diffraction_images/
+    # Input file path for the diffraction pattern images
+    
+    input_experiment_list: 
+    - Ti64_Rolled_TD_Compress_910C_1-00s-1_Multi-Hit_Temp_Cycl_4Cs-1_810_Cool_4Cs-1_b
+    - Ti64_TIMET_RD_Compress_910C_1-00s-1_Single-Hit_Cool_4Cs-1
+    - Ti6246_Forged_DD_Compress_880C_1-00s-1_Single-Hit_Cool_60Cs-1
+    # Input experiment list (name of input folders)
+    
+    glob_search_term: T*.tif
+    # Glob search term (common name of the image files)
+    
+    output_path: ../../../SXRD_analysis/desy_2020/
+    # Output path for azimuthally integrated or caked data files
+    
+    output_experiment_list:
+    - experiment18b-deformation
+    - experiment15-deformation
+    - experiment16-deformation
+    # Output experiment list (name of output folders)
+    
+setup_inputs: 
+    beam_centre_x: 1025.782 
+    # x-coordinate of the beam-centre in pixels
+    
+    beam_centre_y: 1029.635
+    # y-coordinate of the beam-centre in pixels
+    # Note, this is 2048 - 1020.259 since value from Dioptas is from top rather than bottom
+    
+    sample_detector_distance: 1554.464
+    # Sample-to-detector distance in millimetres (unit used by Fit2d)
+   
+    wl: 1.240000e-11 
+    # Beam wavelength in metres
+
+    pixel_x: 0.000200 
+    # Pixel size in metres (in x)
+    pixel_y: 0.000200 
+    # Pixel size in metres (in y)
+
+    calibrant_type: LaB6 
+    # Calibrant type, eg. CeO2, LaB6, etc.
+    
+    num_calibration_rings: 14 
+    # Number of calibrant rings used for calibration
+    
+refinement_inputs:
+    number_of_points: 5000
+    # Number of points used to resolve the intensity profile
+    
+    number_of_cakes: 72
+    # Number of cakes for 'caking' the synchrotron diffraction pattern images
+    
+    pixel_size: 0.200
+    # Pixel size in millimetres
