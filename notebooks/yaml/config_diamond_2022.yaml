@@ -1,0 +1,124 @@
+file_paths:
+    input_calibrant_file: ../../../SXRD_raw_data/diamond_2022/rawdata/111382-pilatus2M-files/00001.tif
+    # Input file path for the calibrant diffraction pattern image
+    
+    output_calibration_path: ../../../SXRD_analysis/diamond_2022/calibration-pyFAI/diamond_2022_CeO2_pyFAI.poni
+    # Output file path for the .poni calibration file
+    
+    input_path: ../../../SXRD_raw_data/diamond_2022/rawdata/
+    # Input file path for the diffraction pattern images
+    
+    input_experiment_list: 
+    - 001_Ti64_TIFUN-R0_RD_Deform_850C_1mms-1_26_05_2022-213507
+    - 002_Ti64_TIFUN-R0_RD_Deform_850C_1mms-1_26_05_2022-223853
+    - 003_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1_27_05_2022-000758
+    - 004_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1_27_05_2022-004711
+    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1_27_05_2022-103459
+    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1_27_05_2022-103459
+    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1_27_05_2022-112001
+    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1_27_05_2022-112001
+    - 007_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1_27_05_2022-120028
+    - 008_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1_27_05_2022-125842
+    - 010_Ti64_TIFUN-T5_TD_Deform_910C_1mms-1_27_05_2022-145732
+    - 011_Ti64_TIFUN-T5_TD_Deform_950C_1mms-1_27_05_2022-155220
+    - 012_Ti64_TIFUN-R1_RD_Deform_850C_0.1mms-1_27_05_2022-164729
+    - 014_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-181319
+    - 015_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-185701
+    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-203545
+    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-203545
+    - 018_Ti64_TIFUN-R1_RD_Deform_950C_0.1mms-1_27_05_2022-211044
+    - 019_Ti64_TIFUN-T5_TD_Deform_850C_0.1mms-1_27_05_2022-215431
+    - 020_Ti64_TIFUN-T5_TD_Deform_910C_0.1mms-1_27_05_2022-223233
+    - 025_Ti64_TIFUN-T5_TD_Deform_950C_0.1mms-1_28_05_2022-145819
+    - 026_Ti64_TIFUN-R1_RD_Deform_880C_0.1mms-1_28_05_2022-153501
+    - 027_Ti64_TIFUN-R2_RD_Deform_880C_1mms-1_28_05_2022-161827
+    - 028_Ti64_TIFUN-T4_TD_Deform_880C_1mms-1_28_05_2022-165449
+    - 029_Ti64_TIFUN-T4_TD_Deform_930C_1mms-1_28_05_2022-172513
+    - 030_Ti64_TIFUN-T4_TD_Deform_880C_0.1mms-1_28_05_2022-175927
+    - 031_Ti64_TIFUN-T4_TD_Deform_880C_0.1mms-1_28_05_2022-183754
+    - 032_Ti64_TIFUN-T4_TD_Deform_930C_0.1mms-1_28_05_2022-191049
+    - 034_Ti64_TIFUN-T4_TD_Deform_910C_1mms-1_28_05_2022-205710
+    - 036_Ti64_TIFUN-T4_TD_Deform_950C_1mms-1_28_05_2022-222041
+    - 037_Ti64_TIFUN-T4_TD_Deform_910C_0.1mms-1_28_05_2022-231144
+    - 038_Ti64_TIFUN-T4_TD_Deform_950C_0.1mms-1_29_05_2022-000608
+    - 039_Ti64_TIFUN-T4_TD_Deform_820C_0.1mms-1_29_05_2022-005104
+    - 041_Ti64_TIFUN-T4_TD_Deform_820C_1mms-1_29_05_2022-014348
+    # Input experiment list (name of input folders)
+    
+    glob_search_term: pilatus_*.cbf
+    # Glob search term (common name of the image files)
+    
+    output_path: ../../../SXRD_analysis/diamond_2022/
+    # Output path for azimuthally integrated or caked data files
+    
+    output_experiment_list:
+    - 001_Ti64_TIFUN-R0_RD_Deform_850C_1mms-1
+    - 002_Ti64_TIFUN-R0_RD_Deform_850C_1mms-1
+    - 003_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1
+    - 004_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1
+    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1
+    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1
+    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1
+    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1
+    - 007_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1
+    - 008_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1
+    - 010_Ti64_TIFUN-T5_TD_Deform_910C_1mms-1
+    - 011_Ti64_TIFUN-T5_TD_Deform_950C_1mms-1
+    - 012_Ti64_TIFUN-R1_RD_Deform_850C_0.1mms-1
+    - 014_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
+    - 015_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
+    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
+    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
+    - 018_Ti64_TIFUN-R1_RD_Deform_950C_0.1mms-1
+    - 019_Ti64_TIFUN-T5_TD_Deform_850C_0.1mms-1
+    - 020_Ti64_TIFUN-T5_TD_Deform_910C_0.1mms-1
+    - 025_Ti64_TIFUN-T5_TD_Deform_950C_0.1mms-1
+    - 026_Ti64_TIFUN-R1_RD_Deform_880C_0.1mms-1
+    - 027_Ti64_TIFUN-R2_RD_Deform_880C_1mms-1
+    - 028_Ti64_TIFUN-T4_TD_Deform_880C_1mms-1
+    - 029_Ti64_TIFUN-T4_TD_Deform_930C_1mms-1
+    - 030_Ti64_TIFUN-T4_TD_Deform_880C_0.1mms-1
+    - 031_Ti64_TIFUN-T4_TD_Deform_880C_0.1mms-1
+    - 032_Ti64_TIFUN-T4_TD_Deform_930C_0.1mms-1
+    - 034_Ti64_TIFUN-T4_TD_Deform_910C_1mms-1
+    - 036_Ti64_TIFUN-T4_TD_Deform_950C_1mms-1
+    - 037_Ti64_TIFUN-T4_TD_Deform_910C_0.1mms-1
+    - 038_Ti64_TIFUN-T4_TD_Deform_950C_0.1mms-1
+    - 039_Ti64_TIFUN-T4_TD_Deform_820C_0.1mms-1
+    - 041_Ti64_TIFUN-T4_TD_Deform_820C_1mms-1
+    # Output experiment list (name of output folders)
+    
+setup_inputs: 
+    beam_centre_x: 766.614
+    # x-coordinate of the beam-centre in pixels
+    
+    beam_centre_y: 627.090
+    # y-coordinate of the beam-centre in pixels
+    # Note, this is 2048 - 1020.259 since value from Dioptas is from top rather than bottom
+    
+    sample_detector_distance: 754
+    # Sample-to-detector distance in millimetres (unit used by Fit2d)
+   
+    wl: 1.384300e-11 
+    # Beam wavelength in metres
+
+    pixel_x: 0.000172 
+    # Pixel size in metres (in x)
+    pixel_y: 0.000172 
+    # Pixel size in metres (in y)
+
+    calibrant_type: CeO2 
+    # Calibrant type, eg. CeO2, LaB6, etc.
+    
+    num_calibration_rings: 15 
+    # Number of calibrant rings used for calibration
+    
+refinement_inputs:
+    number_of_points: 5000
+    # Number of points used to resolve the intensity profile
+    
+    number_of_cakes: 72
+    # Number of cakes for 'caking' the synchrotron diffraction pattern images
+    
+    pixel_size: 0.172
+    # Pixel size in millimetres

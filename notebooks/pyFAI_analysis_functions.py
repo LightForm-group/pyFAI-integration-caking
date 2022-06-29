@@ -11,6 +11,7 @@ from tqdm import tqdm
 import logging
 import math
 import warnings
+import sys
 import os
 import pyFAI.azimuthalIntegrator
 from pyFAI.gui import jupyter
@@ -22,6 +23,14 @@ def get_config(path: str) -> dict:
     """Open a yaml file and return the contents."""
     with open(path) as input_file:
         return yaml.safe_load(input_file)
+    
+def block_print():
+    """Block printing."""
+    sys.stdout = open(os.devnull, 'w')
+
+def enable_print():
+    """Restore printing."""
+    sys.stdout = sys.__stdout__
     
 def calibrate(input_calibrant_path: str, beam_centre_x: float, beam_centre_y: float, sample_detector_distance: float, 
               wl: float, pixel_x: float, pixel_y: float, calibrant_type: str, num_calibration_rings: str, 
@@ -94,7 +103,9 @@ def azimuthal_integration_iteration(input_path: str, input_experiment_list: list
             # create an image array and integrate the data
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
+                block_print() # block printing any image metadata
                 image = fabio.open(image_path)
+                enable_print() # restore printing
             pattern_image_array = image.data
             result = ai.integrate1d(pattern_image_array,
                                 number_of_points,
@@ -145,7 +156,9 @@ def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_s
             # create an image array and cake the data
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
+                block_print() # block printing any image metadata
                 image = fabio.open(image_path)
+                enable_print() # restore printing
             pattern_image_array = image.data
             result2d = ai.integrate2d(pattern_image_array,
                                     number_of_points,
@@ -159,7 +172,7 @@ def caking_iteration_xrdfit(input_path: str, input_experiment_list: list, glob_s
                 # transpose to order the intensity data
                 intensity = result2d.intensity.T
             elif cake_direction == "anti-clockwise" or cake_direction == "anti clockwise" or cake_direction == "anticlockwise":
-                # flip the intensity data to order cakes clockwise rather than anticlockwise
+                # flip the intensity data to order cakes anticlockwise rather than clockwise
                 intensity = np.flip(result2d.intensity.T, axis=1)
             else:
                 print(f"Cake direction input not recognised.")
@@ -208,7 +221,9 @@ def caking_iteration_maud(input_path: str, input_experiment_list: list, glob_sea
             # create an image array and cake the data
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
+                block_print() # block printing any image metadata
                 image = fabio.open(image_path)
+                enable_print() # restore printing
             pattern_image_array = image.data
             result2d = ai.integrate2d(pattern_image_array,
                                     number_of_points,
@@ -222,7 +237,7 @@ def caking_iteration_maud(input_path: str, input_experiment_list: list, glob_sea
                 # transpose to order the intensity data
                 intensity = result2d.intensity.T
             elif cake_direction == "anti-clockwise" or cake_direction == "anti clockwise" or cake_direction == "anticlockwise":
-                # flip the intensity data to order cakes clockwise rather than anticlockwise
+                # flip the intensity data to order cakes anticlockwise rather than clockwise
                 intensity = np.flip(result2d.intensity.T, axis=1)
             else:
                 print(f"Cake direction input not recognised.")
