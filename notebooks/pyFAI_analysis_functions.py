@@ -18,6 +18,7 @@ from pyFAI.gui import jupyter
 import yaml
 from typing import Tuple
 from typing import List
+from PIL import Image
 
 def get_config(path: str) -> dict:
     """Open a yaml file and return the contents."""
@@ -261,3 +262,37 @@ def caking_iteration_maud(input_path: str, input_experiment_list: list, glob_sea
             np.savetxt(f"{output_folder}{image_path.stem}.dat", result_array)
         
         print(f"Saved .dat caked data files to folder : {output_folder}")
+        
+def cbf_to_tiff_iteration(input_path: str, input_experiment_list: list, glob_search_term: str,
+                            output_path: str, output_experiment_list: list):
+
+    # suppress warnings when TIFFs are read
+    logging.getLogger("fabio.TiffIO").setLevel(logging.ERROR)
+
+    for input_experiment, output_experiment in zip(input_experiment_list, output_experiment_list):
+
+        # get a list of the files
+        image_list = sorted(pathlib.Path(input_path + input_experiment).glob(glob_search_term))
+
+        for image_path in tqdm(image_list):
+            # create an image array and integrate the data
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                block_print() # block printing any image metadata
+                image = fabio.open(image_path)
+                enable_print() # restore printing
+            pattern_image_array = image.data
+            
+            # check output folder exists
+            output_folder = f"{output_path}{output_experiment}/tiff-images/"
+            CHECK_FOLDER = os.path.isdir(output_folder)
+
+            if not CHECK_FOLDER:
+                os.makedirs(output_folder)
+                print("Created folder : ", output_folder)
+            
+            im = Image.fromarray(pattern_image_array)
+            # save the image array as a .tif file
+            im.save(f"{output_folder}{image_path.stem}.tif")
+            
+        print(f"Saved .tif image to folder : {output_folder}")

@@ -14,8 +14,6 @@ file_paths:
     - 003_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1_27_05_2022-000758
     - 004_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1_27_05_2022-004711
     - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1_27_05_2022-103459
-    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1_27_05_2022-103459
-    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1_27_05_2022-112001
     - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1_27_05_2022-112001
     - 007_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1_27_05_2022-120028
     - 008_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1_27_05_2022-125842
@@ -24,7 +22,6 @@ file_paths:
     - 012_Ti64_TIFUN-R1_RD_Deform_850C_0.1mms-1_27_05_2022-164729
     - 014_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-181319
     - 015_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-185701
-    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-203545
     - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1_27_05_2022-203545
     - 018_Ti64_TIFUN-R1_RD_Deform_950C_0.1mms-1_27_05_2022-211044
     - 019_Ti64_TIFUN-T5_TD_Deform_850C_0.1mms-1_27_05_2022-215431
@@ -57,8 +54,6 @@ file_paths:
     - 003_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1
     - 004_Ti64_TIFUN-R2_RD_Deform_850C_1mms-1
     - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1
-    - 005_Ti64_TIFUN-R2_RD_Deform_910C_1mms-1
-    - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1
     - 006_Ti64_TIFUN-R2_RD_Deform_950C_1mms-1
     - 007_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1
     - 008_Ti64_TIFUN-T5_TD_Deform_850C_1mms-1
@@ -67,7 +62,6 @@ file_paths:
     - 012_Ti64_TIFUN-R1_RD_Deform_850C_0.1mms-1
     - 014_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
     - 015_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
-    - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
     - 017_Ti64_TIFUN-R1_RD_Deform_910C_0.1mms-1
     - 018_Ti64_TIFUN-R1_RD_Deform_950C_0.1mms-1
     - 019_Ti64_TIFUN-T5_TD_Deform_850C_0.1mms-1
