@@ -3,7 +3,7 @@ PyFAI-integration-caking
 
 A set of Python notebooks for the calibration, azimuthal integration and caking of synchrotron X-ray diffraction (SXRD) pattern images, using the pyFAI and FabIO packages. The notebooks can be used for calibration, and then for azimuthal integration or caking of synchrotron diffraction images, to enable further processing and analysis of synchrotron data using software packages such as [TOPAS](https://www.bruker.com/en/products-and-solutions/diffractometers-and-scattering-systems/x-ray-diffractometers/diffrac-suite-software/diffrac-topas.html), [xrdfit](https://xrdfit.readthedocs.io), or [MAUD](http://maud.radiographema.eu).
 
-Azimuthal integration is the first step necessary for calculating bulk phase fraction from the ratio of peak intensities using TOPAS. Caking is neccessary for determining elastic lattice strain, from peak shifts along particular directions, using xrdfit. And caking can also be used to determine crystallographic texture from intensity variations of different lattice plane peaks along different directions, using xrdfit or MAUD. This package supports these analyses by converting the diffraction pattern images into calibrated integrated and caked data in different text formats.
+Azimuthal integration is the first step necessary for calculating bulk phase fraction from the ratio of different phase peak intensities using TOPAS. Caking is neccessary for determining elastic lattice strain, from peak shifts along particular directions, using xrdfit. And caking can also be used to determine crystallographic texture from intensity variations of different lattice plane peaks along different directions, using xrdfit or MAUD. This package supports these analyses by converting the diffraction pattern images into calibrated integrated and caked data in different text formats.
 
 The package works with diffraction pattern image data in the form of .cbf or .tiff images. And also includes a notebook for converting diffraction pattern images from .cbf to .tiff format.
 
@@ -76,7 +76,7 @@ pip list
 #pyyaml
 ```
 **8. If all in step 7 are present, you can now run the example notebooks.
-Ensure the venv is active and use the following command to boot jupyter notebook (using all libraries installed in the venv)
+Ensure the venv is active and use the following command to boot jupyter notebook (using all libraries installed in the venv).
 Warning - using just `jupyter notebook` without `python -m` can result in using your default python environment (the libraries may not be recognised):**
 ```unix
 python -m jupyter notebook
